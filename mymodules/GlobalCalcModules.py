@@ -1,3 +1,4 @@
+from tokenize import String
 
 
 def addTwoNumbers(num1, num2):
@@ -16,15 +17,19 @@ def printAllNumbers(*myList):
     print(item)
 
 
+
+
 def checkifNumeric(*numList):
   """ This is checking whether all the params are integers of not. If any param is not integer, return False."""
   for item in numList:
     print(item)
-    if not isinstance(item, int):
+    if not isinstance(item, (int, float)):
       return False
   return True
 
-def findMinimum(myList, i):
+
+
+def findMinIndex(myList, i):
   minValue = myList[i]
   idxMin = i
   for x in range(i, len(myList)):
@@ -42,8 +47,9 @@ def swapValues(myList, i, j):
 
 
 def sortList(myList):
+  print("Print before sort", myList)
   for i in range(0, len(myList)):
-    idxMin = findMinimum(myList, i)
+    idxMin = findMinIndex(myList, i)
     swapValues(myList, i, idxMin)
   return myList
 
